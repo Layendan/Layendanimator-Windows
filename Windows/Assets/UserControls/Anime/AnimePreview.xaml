@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="Windows.Assets.UserControls.Anime.AnimePreview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Windows.Assets.UserControls.Anime"
+             mc:Ignorable="d" 
+             d:DesignHeight="280" d:DesignWidth="200"
+             Height="300" Width="220" Margin="0,0,5,0" Loaded="UserControl_Loaded" >
+    <Rectangle x:Name="Anime" RadiusX="5" RadiusY="5" Cursor="Hand">
+        <Rectangle.Fill>
+            <ImageBrush ImageSource="https://static.bunnycdn.ru/i/cache/images/9/9f/9f093a4acac4f57cd9e23a42d45577cd.jpg" />
+        </Rectangle.Fill>
+        <Rectangle.Triggers>
+            <EventTrigger RoutedEvent="Rectangle.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation 
+                            Storyboard.TargetName="Anime"
+                            Storyboard.TargetProperty="Width"
+                            From="200" To="220" Duration="0:0:0.1" />
+
+                        <DoubleAnimation 
+                            Storyboard.TargetName="Anime"
+                            Storyboard.TargetProperty="Height"
+                            From="280" To="300" Duration="0:0:0.1" />
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Rectangle.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation 
+                            Storyboard.TargetName="Anime"
+                            Storyboard.TargetProperty="Width"
+                            From="220" To="200" Duration="0:0:0.1" />
+
+                        <DoubleAnimation 
+                            Storyboard.TargetName="Anime"
+                            Storyboard.TargetProperty="Height"
+                            From="300" To="280" Duration="0:0:0.1" />
+
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Rectangle.Triggers>
+    </Rectangle>
+</UserControl>

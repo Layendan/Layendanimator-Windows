@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="Windows.Assets.UserControls.MainMenu.FeaturedAnime.VideoPlayer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Windows.Assets.UserControls.MainMenu.FeaturedAnime"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             MaxHeight="900" >
+
+    <UserControl.OpacityMask>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" >
+            <GradientStop Offset="0.65" Color="Black" />
+            <GradientStop Offset="1" Color="Transparent" />
+        </LinearGradientBrush>
+    </UserControl.OpacityMask>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="8*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <MediaElement x:Name="Video" Stretch="UniformToFill" LoadedBehavior="Play" UnloadedBehavior="Close" IsMuted="True" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" MediaOpened="Video_MediaOpened" Source="http://storage.googleapis.com/ambient-net-313703/HGVBUKQZXOWJ/23a_1624123806_162570.mp4" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" />
+        <Button x:Name="MuteBtn" Grid.Column="1" Grid.Row="1" MaxHeight="50" MaxWidth="50" Click="MuteBtn_Click" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="1" >
+            <Image Source="/Windows;component/Assets/Icons/mute.png" />
+        </Button>
+    </Grid>
+</UserControl>

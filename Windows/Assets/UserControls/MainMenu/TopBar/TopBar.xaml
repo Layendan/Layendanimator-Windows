@@ -1,0 +1,67 @@
+﻿<UserControl xmlns:UserControls="clr-namespace:Windows.Assets.UserControls"  x:Class="Windows.Assets.UserControls.MainMenu.TopBar.TopBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Windows.Assets.UserControls.MainMenu.TopBar"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="800"
+             Height="50">
+    <UserControl.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#7F000000" Offset="0.6"/>
+            <GradientStop Color="#00000000" Offset="1"/>
+            <GradientStop Color="#BF000000"/>
+        </LinearGradientBrush>
+    </UserControl.Background>
+    <Grid Margin="10,5,10,0">
+        <Grid.ColumnDefinitions>
+            <!-- Hamburger -->
+            <ColumnDefinition Width="auto" />
+            <!-- Logo -->
+            <ColumnDefinition Width="auto" />
+            <!-- Name -->
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <!-- Search -->
+            <ColumnDefinition Width="auto" />
+            <!-- Misc -->
+            <ColumnDefinition Width="auto" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Windows;component/Assets/Icons/icon_rendered16x.png" Margin="5" Grid.Column="1"         />
+        <TextBlock Text="Layendanimator" Grid.Column="2" VerticalAlignment="Center" FontSize="26" Margin="5"    />
+        <Button Grid.Column="4" Background="{x:Null}" BorderBrush="{x:Null}" Margin="5" Click="Search_Click" Cursor="Hand" VerticalAlignment="Center" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Image Source="/Windows;component/Assets/Icons/1024px-Search_Icon.svg.png" />
+        </Button>
+        <Button Grid.Column="5" Margin="5" Click="Misc_Click" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" VerticalAlignment="Center" >
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Image Source="/Windows;component/Assets/Icons/More-512.png" />
+        </Button>
+    </Grid>
+</UserControl>
