@@ -30,8 +30,8 @@
         </Grid.ColumnDefinitions>
 
         <Image Source="/Windows;component/Assets/Icons/icon_rendered16x.png" Margin="5" Grid.Column="1"         />
-        <TextBlock Text="Layendanimator" Grid.Column="2" VerticalAlignment="Center" FontSize="26" Margin="5"    />
-        <Button Grid.Column="4" Background="{x:Null}" BorderBrush="{x:Null}" Margin="5" Click="Search_Click" Cursor="Hand" VerticalAlignment="Center" >
+        <TextBlock Text="Layendanimator" Grid.Column="2" VerticalAlignment="Center" FontSize="26" Margin="5" Foreground="White"    />
+        <Button Grid.Column="4" Background="{x:Null}" BorderBrush="{x:Null}" Margin="5" Click="Search_Click" Cursor="Hand" VerticalAlignment="Center" Foreground="White" >
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">
@@ -47,7 +47,7 @@
             </Button.Style>
             <Image Source="/Windows;component/Assets/Icons/1024px-Search_Icon.svg.png" />
         </Button>
-        <Button Grid.Column="5" Margin="5" Click="Misc_Click" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" VerticalAlignment="Center" >
+        <Button Grid.Column="5" Margin="5" Click="Misc_Click" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand" VerticalAlignment="Center" Foreground="White" >
             <Button.Style>
                 <Style TargetType="{x:Type Button}">
                     <Setter Property="Template">

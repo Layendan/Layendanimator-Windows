@@ -21,5 +21,6 @@
         Foreground="White"
         KeyDown="NavigationWindow_KeyDown"
         Closed="NavigationWindow_Closed" 
-        StateChanged="NavigationWindow_StateChanged" />
+        StateChanged="NavigationWindow_StateChanged"/>
+<!-- Background="#FF2F3136" -->
 

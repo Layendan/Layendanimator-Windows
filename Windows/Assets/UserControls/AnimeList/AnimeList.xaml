@@ -19,21 +19,21 @@
         <TextBlock Name="ListTitleControl" Text="{Binding Title}" Grid.Column="0" Grid.Row="0" FontSize="36" FontFamily="Arial Black" Margin="30,10" ScrollViewer.CanContentScroll="False" />
         <ScrollViewer PreviewMouseWheel="ScrollBar_MouseWheel" Name="ScrollViewer" Grid.Column="0" Grid.Row="1" CanContentScroll="True" HorizontalScrollBarVisibility="Hidden" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Disabled" PanningMode="HorizontalOnly" >
             <StackPanel Orientation="Horizontal" CanHorizontallyScroll="True" Margin="5,0,0,0">
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
-                <animeprvw:AnimePreview HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx116742-jn0dW23ftehq.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx107717-bixaW1NTGBra.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx120209-ep1vPGhTbJc6.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx128712-AlVwHbrugvj6.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx117612-MCbAaq2ypJlp.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx131646-V43FPAGfW2aB.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx126192-RrXpILOD1VzZ.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx132456-joUzr4UrTXgM.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx128545-5CrVItl9BWiZ.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx132126-kxCCgt2vrCtC.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127366-nQRRRvVbPIDt.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx114065-YPPyW7ZSxfYU.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx127688-WDZFupRhW3eX.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx122441-5qlQC5Ka8k9W.png" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <animeprvw:AnimePreview PictureLink="https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx131149-Yx4j5dfb3494.jpg" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </StackPanel>
         </ScrollViewer>
         

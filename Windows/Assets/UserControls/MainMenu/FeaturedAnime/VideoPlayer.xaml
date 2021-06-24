@@ -27,7 +27,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <MediaElement x:Name="Video" Stretch="UniformToFill" LoadedBehavior="Play" UnloadedBehavior="Close" IsMuted="True" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" MediaOpened="Video_MediaOpened" Source="http://storage.googleapis.com/ambient-net-313703/HGVBUKQZXOWJ/23a_1624123806_162570.mp4" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" />
+        <MediaElement x:Name="Video" Stretch="UniformToFill" LoadedBehavior="Play" UnloadedBehavior="Close" IsMuted="True" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" MediaOpened="Video_MediaOpened" Source="http://storage.googleapis.com/apt-federation-315609/P2FA4_FSCGO/22a_1624462798_162570.mp4" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" />
         <Button x:Name="MuteBtn" Grid.Column="1" Grid.Row="1" MaxHeight="50" MaxWidth="50" Click="MuteBtn_Click" Cursor="Hand" Background="{x:Null}" BorderBrush="{x:Null}" Panel.ZIndex="1" >
             <Image Source="/Windows;component/Assets/Icons/mute.png" />
         </Button>

@@ -6,44 +6,52 @@
              xmlns:local="clr-namespace:Windows.Assets.UserControls.Anime"
              mc:Ignorable="d" 
              d:DesignHeight="280" d:DesignWidth="200"
-             Height="300" Width="220" Margin="0,0,5,0" Loaded="UserControl_Loaded" >
-    <Rectangle x:Name="Anime" RadiusX="5" RadiusY="5" Cursor="Hand">
-        <Rectangle.Fill>
-            <ImageBrush ImageSource="https://static.bunnycdn.ru/i/cache/images/9/9f/9f093a4acac4f57cd9e23a42d45577cd.jpg" />
-        </Rectangle.Fill>
-        <Rectangle.Triggers>
-            <EventTrigger RoutedEvent="Rectangle.MouseEnter">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation 
-                            Storyboard.TargetName="Anime"
-                            Storyboard.TargetProperty="Width"
-                            From="200" To="220" Duration="0:0:0.1" />
+             Height="300" Width="220" Margin="0,0,5,0">
 
-                        <DoubleAnimation 
-                            Storyboard.TargetName="Anime"
-                            Storyboard.TargetProperty="Height"
-                            From="280" To="300" Duration="0:0:0.1" />
-
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="Rectangle.MouseLeave">
-                <BeginStoryboard>
-                    <Storyboard>
-                        <DoubleAnimation 
-                            Storyboard.TargetName="Anime"
-                            Storyboard.TargetProperty="Width"
-                            From="220" To="200" Duration="0:0:0.1" />
-
-                        <DoubleAnimation 
-                            Storyboard.TargetName="Anime"
-                            Storyboard.TargetProperty="Height"
-                            From="300" To="280" Duration="0:0:0.1" />
-
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Rectangle.Triggers>
-    </Rectangle>
+    <Border x:Name="Anime" Height="280" Width="200" BorderBrush="Transparent" BorderThickness="0" CornerRadius="30,30,30,30" Padding="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Cursor="Hand">
+            <Border Name="mask" BorderThickness="0" CornerRadius="10">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Windows;component/Assets/Icons/loading_failure.jpg"/>
+                </Border.Background>
+            </Border>
+            <Grid>
+                <Grid.OpacityMask>
+                    <VisualBrush Visual="{Binding ElementName=mask}"/>
+                </Grid.OpacityMask>
+                <Image Source="{Binding PictureLink}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image.Triggers>
+                        <EventTrigger RoutedEvent="Image.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                                        Storyboard.TargetName="Anime"
+                                        Storyboard.TargetProperty="Width"
+                                        From="200" To="220" Duration="0:0:0.05" />
+                                    <DoubleAnimation 
+                                        Storyboard.TargetName="Anime"
+                                        Storyboard.TargetProperty="Height"
+                                        From="280" To="300" Duration="0:0:0.05" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="Image.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation 
+                                        Storyboard.TargetName="Anime"
+                                        Storyboard.TargetProperty="Width"
+                                        From="220" To="200" Duration="0:0:0.05" />
+                                    <DoubleAnimation 
+                                        Storyboard.TargetName="Anime"
+                                        Storyboard.TargetProperty="Height"
+                                        From="300" To="280" Duration="0:0:0.05" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Image.Triggers>
+                </Image>
+            </Grid>
+        </Grid>
+    </Border>
 </UserControl>

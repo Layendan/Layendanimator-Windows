@@ -20,15 +20,18 @@ namespace Windows.Assets.UserControls.Anime
     /// </summary>
     public partial class AnimePreview : UserControl
     {
+        public static readonly DependencyProperty LinkProperty = DependencyProperty.Register("PictureLink", typeof(string), typeof(AnimePreview));
+
+        public string PictureLink
+        {
+            get { return (string)GetValue(LinkProperty); }
+            set { SetValue(LinkProperty, value); }
+        }
+
         public AnimePreview()
         {
             InitializeComponent();
-        }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            Anime.Width = 200;
-            Anime.Height = 280;
+            DataContext = this;
         }
     }
 }
