@@ -163,9 +163,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Icons\among_us_player_red_icon_156942.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\Icons\icon_rendered16x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -176,9 +173,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Icons\mute.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Icons\avatar.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\Icons\loading_failure.jpg" />

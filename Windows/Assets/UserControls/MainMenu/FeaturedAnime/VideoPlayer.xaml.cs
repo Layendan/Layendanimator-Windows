@@ -20,17 +20,17 @@ namespace Windows.Assets.UserControls.MainMenu.FeaturedAnime
     /// </summary>
     public partial class VideoPlayer : UserControl
     {
+        public static readonly DependencyProperty SourceProperty = DependencyProperty.Register("VideoSource", typeof(Uri), typeof(VideoPlayer));
+
+        public Uri VideoSource
+        {
+            get { return (Uri)GetValue(SourceProperty); }
+            set { SetValue(SourceProperty, value); }
+        }
+
         public VideoPlayer()
         {
             InitializeComponent();
-
-            Keyboard.Focus(Video);
-        }
-
-        private void Video_MediaOpened(object sender, RoutedEventArgs e)
-        {
-            TimeSpan ts = new TimeSpan(0, 0, 3, 8, 0);
-            Video.Position = ts;
         }
 
         private void MuteBtn_Click(object sender, RoutedEventArgs e)

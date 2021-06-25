@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <!-- <MediaElement Stretch="UniformToFill" x:Name="Video" LoadedBehavior="Play" UnloadedBehavior="Close" IsMuted="True" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" MediaOpened="Video_MediaOpened" Source="http://storage.googleapis.com/double-balm-312516/2A1GS6TEFKW/23a_1623395778_162570.mp4" HorizontalAlignment="Center" VerticalAlignment="Top" Panel.ZIndex="0" RenderTransformOrigin="0.5,0.5" /> -->
-        <local:VideoPlayer Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" />
+        <local:VideoPlayer VideoSource="{Binding VideoSource}" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" />
         <local:AnimeInformation Grid.Row="1" Grid.Column="1" />
     </Grid>
 </UserControl>

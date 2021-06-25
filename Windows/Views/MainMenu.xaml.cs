@@ -20,9 +20,13 @@ namespace Windows.Views
     /// </summary>
     public partial class MainMenu : Page
     {
+        public Uri ftrVideoSource { get; set; }
+
         public MainMenu()
         {
             InitializeComponent();
+
+            ftrVideoSource = new UriBuilder("http://storage.googleapis.com/sacred-entry-315002/7GRIB5BG5KF/22a_1624590142162570.mp4").Uri;
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)

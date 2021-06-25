@@ -20,11 +20,11 @@ namespace Windows.Assets.UserControls.Anime
     /// </summary>
     public partial class AnimePreview : UserControl
     {
-        public static readonly DependencyProperty LinkProperty = DependencyProperty.Register("PictureLink", typeof(string), typeof(AnimePreview));
+        public static readonly DependencyProperty LinkProperty = DependencyProperty.Register("PictureLink", typeof(Uri), typeof(AnimePreview));
 
-        public string PictureLink
+        public Uri PictureLink
         {
-            get { return (string)GetValue(LinkProperty); }
+            get { return (Uri)GetValue(LinkProperty); }
             set { SetValue(LinkProperty, value); }
         }
 

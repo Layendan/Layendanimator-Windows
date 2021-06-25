@@ -22,11 +22,11 @@ namespace Windows.Assets.UserControls.MainMenu.FeaturedAnime
     /// </summary>
     public partial class FeaturedAnime : UserControl
     {
-        public static readonly DependencyProperty VideoSourceProperty = DependencyProperty.Register("VideoSource", typeof(string), typeof(FeaturedAnime));
+        public static readonly DependencyProperty VideoSourceProperty = DependencyProperty.Register("VideoSource", typeof(Uri), typeof(FeaturedAnime));
 
-        public string VideoSource
+        public Uri VideoSource
         {
-            get { return (string)GetValue(VideoSourceProperty); }
+            get { return (Uri)GetValue(VideoSourceProperty); }
             set { SetValue(VideoSourceProperty, value); }
         }
 
@@ -34,12 +34,6 @@ namespace Windows.Assets.UserControls.MainMenu.FeaturedAnime
         {
             InitializeComponent();
             DataContext = this;
-        }
-
-        private void Video_MediaOpened(object sender, RoutedEventArgs e)
-        {
-            TimeSpan ts = new TimeSpan(0, 0, 3, 8, 0);
-            //Video.Position = ts;
         }
     }
 }
