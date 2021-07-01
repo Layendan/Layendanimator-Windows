@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using JavaScriptEngineSwitcher.V8;
 using System.Net.Http;
 using Newtonsoft.Json;
+using Windows.Models.UserControlModels.Anime;
 
 namespace Windows.Views
 {
@@ -28,14 +29,14 @@ namespace Windows.Views
         public MainMenu()
         {
             InitializeComponent();
+
             V8JsEngine engine = new V8JsEngine();
 
-            ftrVideoSource = new UriBuilder("http://storage.googleapis.com/nodal-boulder-315702/VQZFVFVH43XP/st23_vivy-fluorite-eyes-song-episode-11.1624913946.mp4").Uri;
+            Type animeType = typeof(Anime);
 
             var fetchFunc = new Func<string, string, string>((url, options) =>
             {
-                var json = JsonConvert.SerializeObject(options);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var data = new StringContent(options, Encoding.UTF8, "application/json");
 
                 var client = new HttpClient();
 
@@ -46,11 +47,21 @@ namespace Windows.Views
                 return result;
             });
 
+            var logFunc = new Func<string, string>((value) =>
+            {
+                Console.WriteLine(value);
+                return value;
+            });
+
+            engine.EmbedHostType("Anime", animeType);
             engine.EmbedHostObject("fetch", fetchFunc);
+            engine.EmbedHostObject("log", logFunc);
 
             engine.ExecuteFile(@"C:\Users\aidan\source\repos\Layendanimator\Windows\Models\JavaScriptEngine\Anilist\FeaturedAnimeModel.js");
-            if(engine.HasVariable("name"))
-                Console.WriteLine(engine.GetVariableValue("name"));
+            if(engine.HasVariable("title"))
+                Console.WriteLine(engine.GetVariableValue("title"));
+
+            ftrVideoSource = new UriBuilder(engine.GetVariableValue("videoUri").ToString()).Uri;
 
             engine.Dispose();
         }

@@ -11,6 +11,7 @@ namespace Windows.Models.UserControlModels.Anime
         private string title;
         private string description;
         private byte rating;
+        private Uri thumbnailUri;
 
         public byte Rating
         {
@@ -30,6 +31,13 @@ namespace Windows.Models.UserControlModels.Anime
         {
             get { return title; }
             set { title = value; }
+        }
+
+
+        public Uri ThumbnailUri
+        {
+            get { return thumbnailUri; }
+            set { thumbnailUri = value; }
         }
 
         public Anime(string title, string description, byte rating)
