@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JavaScriptEngineSwitcher.V8;
 
 namespace Windows.Views
 {
@@ -26,7 +27,12 @@ namespace Windows.Views
         {
             InitializeComponent();
 
-            ftrVideoSource = new UriBuilder("http://storage.googleapis.com/sacred-entry-315002/7GRIB5BG5KF/22a_1624590142162570.mp4").Uri;
+            ftrVideoSource = new UriBuilder("http://storage.googleapis.com/nodal-boulder-315702/VQZFVFVH43XP/st23_vivy-fluorite-eyes-song-episode-11.1624913946.mp4").Uri;
+
+            V8JsEngine engine = new V8JsEngine();
+            engine.ExecuteFile(@"C:\Users\aidan\source\repos\Layendanimator\Windows\Models\JavaScriptEngine\Anilist\FeaturedAnimeModel.js");
+            if(engine.HasVariable("name"))
+                Console.WriteLine(engine.GetVariableValue("name"));
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)

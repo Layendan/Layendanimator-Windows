@@ -18,7 +18,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
+        
         <topbar:TopBar x:Name="TopBar" Grid.Row="0" Grid.Column="0" Panel.ZIndex="2" />
         <ScrollViewer x:Name="MMScrollViewer" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" PreviewMouseWheel="ScrollViewer_PreviewMouseWheel" PanningMode="VerticalOnly" >
             <Grid>

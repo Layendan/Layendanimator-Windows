@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Windows.Models;
-using JavaScriptEngineSwitcher.ChakraCore;
 
 namespace Windows.Assets.UserControls.MainMenu.FeaturedAnime
 {
@@ -33,14 +32,6 @@ namespace Windows.Assets.UserControls.MainMenu.FeaturedAnime
         public VideoPlayer()
         {
             InitializeComponent();
-
-            //JavaScript engine testing
-            ChakraCoreJsEngine jsEngine = new ChakraCoreJsEngine();
-            jsEngine.Execute(@"{ isVideoMuted = false; }");
-            Console.WriteLine(jsEngine.GetVariableValue("isVideoMuted"));
-            jsEngine.SetVariableValue("isVideoMuted", true);
-            Console.WriteLine(jsEngine.GetVariableValue("isVideoMuted"));
-            jsEngine.Dispose();
         }
 
         private void MuteBtn_Click(object sender, RoutedEventArgs e)
