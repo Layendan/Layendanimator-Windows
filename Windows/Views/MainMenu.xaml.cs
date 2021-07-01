@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using JavaScriptEngineSwitcher.V8;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace Windows.Views
 {
@@ -26,13 +28,31 @@ namespace Windows.Views
         public MainMenu()
         {
             InitializeComponent();
+            V8JsEngine engine = new V8JsEngine();
 
             ftrVideoSource = new UriBuilder("http://storage.googleapis.com/nodal-boulder-315702/VQZFVFVH43XP/st23_vivy-fluorite-eyes-song-episode-11.1624913946.mp4").Uri;
 
-            V8JsEngine engine = new V8JsEngine();
+            var fetchFunc = new Func<string, string, string>((url, options) =>
+            {
+                var json = JsonConvert.SerializeObject(options);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var client = new HttpClient();
+
+                var response = client.PostAsync(url, data);
+
+                string result = response.Result.Content.ReadAsStringAsync().Result;
+
+                return result;
+            });
+
+            engine.EmbedHostObject("fetch", fetchFunc);
+
             engine.ExecuteFile(@"C:\Users\aidan\source\repos\Layendanimator\Windows\Models\JavaScriptEngine\Anilist\FeaturedAnimeModel.js");
             if(engine.HasVariable("name"))
                 Console.WriteLine(engine.GetVariableValue("name"));
+
+            engine.Dispose();
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)

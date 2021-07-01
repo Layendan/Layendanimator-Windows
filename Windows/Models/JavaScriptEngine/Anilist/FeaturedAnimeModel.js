@@ -38,23 +38,12 @@
         };
 
     // Make the HTTP Api request
-    //fetch(url, options).then(handleResponse)
-        //.then(handleData)
-        //.catch(handleError);
+    var data = fetch(url, JSON.stringify({ query: query, variables: variables }));
 
-    function handleResponse(response) {
-        return response.json().then(function (json) {
-            return response.ok ? json : Promise.reject(json);
-        });
-    }
+    handleData(data);
 
     function handleData(data) {
         console.log(data);
-        name = data.media.title.romanji;
-    }
-
-    function handleError(error) {
-        alert('Error, check console');
-        console.error(error);
+        name = data;
     }
 }
