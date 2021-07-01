@@ -35,7 +35,7 @@
         log(data);
         var json = JSON.parse(data);
         title = json.data.Media.title.english;
-        description = "test";
+        description = "Hello World";
         videoUri = "https://storage.googleapis.com/orbital-wharf-315706/4MCA7JFMA7WU/st23_vivy-fluorite-eyes-song-episode-11.1624983713.mp4".replace("https", "http");
     }
 }
