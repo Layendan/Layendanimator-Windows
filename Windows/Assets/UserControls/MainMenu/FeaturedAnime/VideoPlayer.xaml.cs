@@ -32,11 +32,24 @@ namespace Windows.Assets.UserControls.MainMenu.FeaturedAnime
         public VideoPlayer()
         {
             InitializeComponent();
+
+            //Feels like faster loading
+            Video.Play();
         }
 
         private void MuteBtn_Click(object sender, RoutedEventArgs e)
         {
             Video.IsMuted = !Video.IsMuted;
+        }
+
+        private void Video_Unloaded(object sender, RoutedEventArgs e)
+        {
+            Video.Pause();
+        }
+
+        private void Video_Loaded(object sender, RoutedEventArgs e)
+        {
+            Video.Play();
         }
     }
 }
