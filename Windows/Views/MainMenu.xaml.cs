@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using JavaScriptEngineSwitcher.V8;
 using System.Net.Http;
-using Newtonsoft.Json;
 using Windows.Models.UserControlModels.Anime;
 
 namespace Windows.Views
@@ -47,7 +46,7 @@ namespace Windows.Views
                 return result;
             });
 
-            var logFunc = new Func<string, string>((value) =>
+            var logFunc = new Func<object, object>((value) =>
             {
                 Console.WriteLine(value);
                 return value;
@@ -57,11 +56,12 @@ namespace Windows.Views
             engine.EmbedHostObject("fetch", fetchFunc);
             engine.EmbedHostObject("log", logFunc);
 
-            engine.ExecuteFile(@"C:\Users\aidan\source\repos\Layendanimator\Windows\Models\JavaScriptEngine\Anilist\FeaturedAnimeModel.js");
+            engine.Execute(getPageContent(@"https://raw.githubusercontent.com/Layendan/Layendanimator/Layendan/Windows/Models/JavaScriptEngine/Anilist/FeaturedAnimeModel.js"));
             if(engine.HasVariable("title"))
                 Console.WriteLine(engine.GetVariableValue("title"));
 
-            ftrVideoSource = new UriBuilder(engine.GetVariableValue("videoUri").ToString()).Uri;
+            //ftrVideoSource = new UriBuilder(engine.GetVariableValue("videoUri").ToString()).Uri;
+            ftrVideoSource = new UriBuilder(@"http://streamani.net/goto.php?url=aHR0cHM6LyAdrefsdsdfwerFrefdsfrersfdsrfer363435349zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2NvYmFsdC1hbGxpYW5jZS0zMTcwMDYvM1Q4Mk5TOEJNRTZOL3N0MjJfbmFydXRvLWVwaXNvZGUtMS4xNjI1OTQ2ODUwLm1wNA==").Uri;
 
             engine.Dispose();
         }
@@ -73,6 +73,26 @@ namespace Windows.Views
                 MMScrollViewer.ScrollToVerticalOffset(MMScrollViewer.VerticalOffset - e.Delta);
                 e.Handled = true;
             }
+        }
+
+        public string getPageContent(string url)
+        {
+            var client = new HttpClient();
+
+            try
+            {
+                var response = client.GetAsync(url);
+
+                string result = response.Result.Content.ReadAsStringAsync().Result;
+
+                return result;
+            } 
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception at HttpClient.GetAsync() in getPageContent() in MainMenu.xaml.cs: { ex.Message }");
+                return null;
+            }
+            
         }
     }
 }

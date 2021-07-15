@@ -8,7 +8,7 @@
              d:DesignHeight="280" d:DesignWidth="200"
              Height="300" Width="220" Margin="0,0,5,0">
 
-    <Border x:Name="Anime" Height="280" Width="200" BorderBrush="Transparent" BorderThickness="0" CornerRadius="30,30,30,30" Padding="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Border x:Name="Anime" Height="280" Width="200" BorderBrush="Transparent" BorderThickness="0" CornerRadius="30,30,30,30" Padding="2" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewMouseDown="Anime_PreviewMouseDown">
         <Grid Cursor="Hand">
             <Border Name="mask" BorderThickness="0" CornerRadius="10">
                 <Border.Background>
@@ -16,41 +16,86 @@
                 </Border.Background>
             </Border>
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
                 <Grid.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=mask}"/>
                 </Grid.OpacityMask>
-                <Image Source="{Binding PictureLink}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image.Triggers>
-                        <EventTrigger RoutedEvent="Image.MouseEnter">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation 
+                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{Binding PictureLink}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="0" />
+                <Grid Grid.Row="1" Grid.Column="0" x:Name="AnimeTitle" Opacity="0" Background="#BF000000" Panel.ZIndex="1" MaxHeight="100">
+                    <TextBlock Text="Test" FontSize="24" Margin="7.5,0,7.5,2.5" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" />
+                </Grid>
+                <Grid.Triggers>
+                    <EventTrigger RoutedEvent="Grid.MouseEnter">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation 
                                         Storyboard.TargetName="Anime"
                                         Storyboard.TargetProperty="Width"
                                         From="200" To="220" Duration="0:0:0.05" />
-                                    <DoubleAnimation 
+                                <DoubleAnimation 
                                         Storyboard.TargetName="Anime"
                                         Storyboard.TargetProperty="Height"
                                         From="280" To="300" Duration="0:0:0.05" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="Image.MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation 
+                                <DoubleAnimation 
+                                        Storyboard.TargetName="AnimeTitle"
+                                        Storyboard.TargetProperty="Opacity"
+                                        From="0" To="1" Duration="0:0:0.5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Grid.MouseLeave">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation 
                                         Storyboard.TargetName="Anime"
                                         Storyboard.TargetProperty="Width"
                                         From="220" To="200" Duration="0:0:0.05" />
-                                    <DoubleAnimation 
+                                <DoubleAnimation 
                                         Storyboard.TargetName="Anime"
                                         Storyboard.TargetProperty="Height"
                                         From="300" To="280" Duration="0:0:0.05" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Image.Triggers>
-                </Image>
+                                <DoubleAnimation 
+                                        Storyboard.TargetName="AnimeTitle"
+                                        Storyboard.TargetProperty="Opacity"
+                                        From="1" To="0" Duration="0:0:0.5" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Grid.MouseDown">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation 
+                                        Storyboard.TargetName="Anime"
+                                        Storyboard.TargetProperty="Width"
+                                        From="220" To="210" Duration="0:0:0.05" />
+                                <DoubleAnimation 
+                                        Storyboard.TargetName="Anime"
+                                        Storyboard.TargetProperty="Height"
+                                        From="300" To="290" Duration="0:0:0.05" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                    <EventTrigger RoutedEvent="Grid.MouseUp">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation 
+                                        Storyboard.TargetName="Anime"
+                                        Storyboard.TargetProperty="Width"
+                                        From="210" To="220" Duration="0:0:0.05" />
+                                <DoubleAnimation 
+                                        Storyboard.TargetName="Anime"
+                                        Storyboard.TargetProperty="Height"
+                                        From="290" To="300" Duration="0:0:0.05" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Grid.Triggers>
             </Grid>
         </Grid>
     </Border>

@@ -36,6 +36,6 @@
         var json = JSON.parse(data);
         title = json.data.Media.title.english;
         description = "Hello World";
-        videoUri = "https://storage.googleapis.com/orbital-wharf-315706/4MCA7JFMA7WU/st23_vivy-fluorite-eyes-song-episode-11.1624983713.mp4".replace("https", "http");
+        videoUri = "https://streamani.net/goto.php?url=aHR0cHM6LyURASDGHUSRFSJGYfdsffsderFStewthsfSFtrftesdf9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3RvdGVtaWMtc2VjdG9yLTMxNzAwMi9ZRDREVkdWMVk0Wi9zdDIzX3ZpdnktZmx1b3JpdGUtZXllcy1zb25nLWVwaXNvZGUtMTEuMTYyNTkxMTQ4NS5tcDQ=".replace("https://", "http://");
     }
 }
