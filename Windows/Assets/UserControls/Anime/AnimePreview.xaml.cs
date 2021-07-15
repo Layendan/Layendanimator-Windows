@@ -32,6 +32,30 @@ namespace Windows.Assets.UserControls.Anime
         {
             InitializeComponent();
             DataContext = this;
+
+            //Anime.PreviewMouseDown += Anime_PreviewMouseDown;
+        }
+
+        private void Anime_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Anime.PreviewMouseUp += Anime_PreviewMouseUp;
+        }
+
+        private void Anime_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if(IsMouseOver)
+            {
+                Anime.PreviewMouseUp -= Anime_PreviewMouseUp;
+                try
+                {
+                    ((NavigationWindow)Application.Current.MainWindow).Navigate(new Views.AnimeInformation());
+                } 
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Exception at navigationWindow.Navigate() in Anime_PreviewMouseUp() in AnimePreview.xaml.cs: { ex.Message }");
+                }
+                
+            }
         }
     }
 }
