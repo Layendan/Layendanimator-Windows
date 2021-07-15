@@ -60,8 +60,7 @@ namespace Windows.Views
             if(engine.HasVariable("title"))
                 Console.WriteLine(engine.GetVariableValue("title"));
 
-            //ftrVideoSource = new UriBuilder(engine.GetVariableValue("videoUri").ToString()).Uri;
-            ftrVideoSource = new UriBuilder(@"http://streamani.net/goto.php?url=aHR0cHM6LyAdrefsdsdfwerFrefdsfrersfdsrfer363435349zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2NvYmFsdC1hbGxpYW5jZS0zMTcwMDYvM1Q4Mk5TOEJNRTZOL3N0MjJfbmFydXRvLWVwaXNvZGUtMS4xNjI1OTQ2ODUwLm1wNA==").Uri;
+            ftrVideoSource = new UriBuilder(engine.GetVariableValue("videoUri").ToString()).Uri;
 
             engine.Dispose();
         }

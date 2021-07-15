@@ -36,6 +36,6 @@
         var json = JSON.parse(data);
         title = json.data.Media.title.english;
         description = "Hello World";
-        videoUri = "https://streamani.net/goto.php?url=aHR0cHM6LyURASDGHUSRFSJGYfdsffsderFStewthsfSFtrftesdf9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3RvdGVtaWMtc2VjdG9yLTMxNzAwMi9ZRDREVkdWMVk0Wi9zdDIzX3ZpdnktZmx1b3JpdGUtZXllcy1zb25nLWVwaXNvZGUtMTEuMTYyNTkxMTQ4NS5tcDQ=".replace("https://", "http://");
+        videoUri = "https://streamani.net/goto.php?url=aHR0cHM6LyAdrefsdsdfwerFrefdsfrersfdsrfer363435349zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2NvYmFsdC1hbGxpYW5jZS0zMTcwMDYvM1Q4Mk5TOEJNRTZOL3N0MjJfbmFydXRvLWVwaXNvZGUtMS4xNjI1OTQ2ODUwLm1wNA==".replace("https://", "http://");
     }
 }
