@@ -26,7 +26,7 @@
                 <Grid.OpacityMask>
                     <VisualBrush Visual="{Binding ElementName=mask}"/>
                 </Grid.OpacityMask>
-                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{Binding PictureLink}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="0" />
+                <Image x:Name="image" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Source="{Binding PictureLink}" Stretch="UniformToFill" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="0" />
                 <Grid Grid.Row="1" Grid.Column="0" x:Name="AnimeTitle" Opacity="0" Background="#BF000000" Panel.ZIndex="1" MaxHeight="100">
                     <TextBlock Text="Test" FontSize="24" Margin="7.5,0,7.5,2.5" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" TextTrimming="CharacterEllipsis" />
                 </Grid>

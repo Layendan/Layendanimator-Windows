@@ -6,9 +6,19 @@
       xmlns:local="clr-namespace:Windows.Views"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="AnimeInformation">
+      Title="AnimeInformation"
+      x:Name="Page">
 
     <Grid>
-        <TextBlock>Hello World</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Image x:Name="image" Grid.Row="0" Grid.Column="0" Margin="20" Source="/Windows;component/Assets/Icons/loading_failure.jpg" />
+        <Rectangle x:Name="rectangle" Grid.Row="0" Grid.Column="1" />
     </Grid>
 </Page>

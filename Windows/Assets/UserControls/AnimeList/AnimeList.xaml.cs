@@ -48,5 +48,16 @@ namespace Windows.Assets.UserControls
                 e.Handled = true;
             }
         }
+
+        public void MouseTilt(int tilt)
+        {
+            int absTilt = Math.Abs(tilt);
+            if (absTilt <= 10)
+                tilt /= absTilt;
+            else
+                tilt /= absTilt - 1;
+
+            ScrollViewer.ScrollToHorizontalOffset(ScrollViewer.HorizontalOffset + tilt);
+        }
     }
 }

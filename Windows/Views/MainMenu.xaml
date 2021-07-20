@@ -54,15 +54,15 @@
                 </Grid.RowDefinitions>
 
                 <ftrdanime:FeaturedAnime VideoSource="{Binding ftrVideoSource, RelativeSource={RelativeSource FindAncestor, AncestorType=Page}}" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Panel.ZIndex="0" />
-                <usercontrols:AnimeList Title="This Week" Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Panel.ZIndex="1" />
-                <usercontrols:AnimeList Title="Subscriptions" Grid.Row="4" Grid.Column="0" />
-                <usercontrols:AnimeList Title="Seasonal Anime" Grid.Row="5" Grid.Column="0" />
-                <usercontrols:AnimeList Title="Anime For You - Anilist" Grid.Row="6" Grid.Column="0" />
-                <usercontrols:AnimeList Title="Anime For You - MAL" Grid.Row="7" Grid.Column="0" />
-                <usercontrols:AnimeList Title="Anime For You - Kitsu" Grid.Row="8" Grid.Column="0" />
-                <usercontrols:AnimeList Title="Anime For You - SIMKL" Grid.Row="9" Grid.Column="0" />
-                <usercontrols:AnimeList Title="Trending" Grid.Row="10" Grid.Column="0" />
-                <usercontrols:AnimeList Title="Featured" Grid.Row="11" Grid.Column="0" />
+                <usercontrols:AnimeList x:Name="thisWeek" Title="This Week" Grid.Row="2" Grid.RowSpan="2" Grid.Column="0" Panel.ZIndex="1" />
+                <usercontrols:AnimeList x:Name="subscriptions" Title="Subscriptions" Grid.Row="4" Grid.Column="0" />
+                <usercontrols:AnimeList x:Name="seasonalAnime" Title="Seasonal Anime" Grid.Row="5" Grid.Column="0" />
+                <usercontrols:AnimeList x:Name="animeForYouAnilist" Title="Anime For You - Anilist" Grid.Row="6" Grid.Column="0" />
+                <usercontrols:AnimeList x:Name="animeForYoutMAL" Title="Anime For You - MAL" Grid.Row="7" Grid.Column="0" />
+                <usercontrols:AnimeList x:Name="animeForYouKitsu" Title="Anime For You - Kitsu" Grid.Row="8" Grid.Column="0" />
+                <usercontrols:AnimeList x:Name="animeForYouSimkl" Title="Anime For You - SIMKL" Grid.Row="9" Grid.Column="0" />
+                <usercontrols:AnimeList x:Name="trending" Title="Trending" Grid.Row="10" Grid.Column="0" />
+                <usercontrols:AnimeList x:Name="featured" Title="Featured" Grid.Row="11" Grid.Column="0" />
             </Grid>
         </ScrollViewer>
     </Grid>

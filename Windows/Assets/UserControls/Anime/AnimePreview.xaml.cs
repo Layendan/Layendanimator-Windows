@@ -36,11 +36,13 @@ namespace Windows.Assets.UserControls.Anime
             //Anime.PreviewMouseDown += Anime_PreviewMouseDown;
         }
 
+        //Simulate Click
         private void Anime_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             Anime.PreviewMouseUp += Anime_PreviewMouseUp;
         }
 
+        //Simulate mouse up of click
         private void Anime_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             if(IsMouseOver)
@@ -48,13 +50,15 @@ namespace Windows.Assets.UserControls.Anime
                 Anime.PreviewMouseUp -= Anime_PreviewMouseUp;
                 try
                 {
-                    ((NavigationWindow)Application.Current.MainWindow).Navigate(new Views.AnimeInformation());
+                    Views.AnimeInformation animeInformation = new Views.AnimeInformation();
+                    animeInformation.setSource(image.Source);
+                    ((NavigationWindow)Application.Current.MainWindow).Navigate(animeInformation);
+                    
                 } 
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Exception at navigationWindow.Navigate() in Anime_PreviewMouseUp() in AnimePreview.xaml.cs: { ex.Message }");
                 }
-                
             }
         }
     }

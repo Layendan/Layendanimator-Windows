@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
+using System.Windows.Media;
 using System.Windows.Navigation;
 using Windows.Views;
 
@@ -18,6 +20,8 @@ namespace Windows
         public MainWindow()
         {
             InitializeComponent();
+
+            Application.Current.MainWindow = this;
 
             Width = SystemParameters.WorkArea.Width / 1.5;
             Height = SystemParameters.WorkArea.Height / 1.5;
@@ -47,6 +51,73 @@ namespace Windows
             }
 
             Content = mainMenu;
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            var source = PresentationSource.FromVisual(this);
+            ((HwndSource)source)?.AddHook(Hook);
+        }
+
+        const int WM_MOUSEHWHEEL = 0x020E;
+
+        private IntPtr Hook(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            switch (msg)
+            {
+                case WM_MOUSEHWHEEL:
+                    int tilt = (short)HIWORD(wParam);
+                    OnMouseTilt(tilt);
+                    return (IntPtr)1;
+            }
+            return IntPtr.Zero;
+        }
+
+        /// <summary>
+        /// Gets high bits values of the pointer.
+        /// </summary>
+        private static int HIWORD(IntPtr ptr)
+        {
+            var val32 = ptr.ToInt32();
+            return ((val32 >> 16) & 0xFFFF);
+        }
+
+        /// <summary>
+        /// Gets low bits values of the pointer.
+        /// </summary>
+        private static int LOWORD(IntPtr ptr)
+        {
+            var val32 = ptr.ToInt32();
+            return (val32 & 0xFFFF);
+        }
+
+        private void OnMouseTilt(int tilt)
+        {
+            foreach (var al in FindVisualChildren<Assets.UserControls.AnimeList>(this))
+            {
+                if(al.IsMouseOver)
+                {
+                    al.MouseTilt(tilt);
+                    break;
+                }
+            }
+        }
+
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj == null)
+                yield return null;
+
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+            {
+                var child = VisualTreeHelper.GetChild(depObj, i);
+
+                if (child != null && child is T)
+                    yield return (T)child;
+
+                foreach (T childOfChild in FindVisualChildren<T>(child))
+                    yield return childOfChild;
+            }
         }
 
         private void NavigationWindow_KeyDown(object sender, KeyEventArgs e)
